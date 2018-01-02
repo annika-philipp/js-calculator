@@ -8,9 +8,10 @@ body {
     margin-top: 20px;
 }
 #screen {
-    width: 300px;
+    width: 280px;
     height: 100px;
     margin: 20px auto 20px auto;
+    padding-left: 10px;
     background-color: darkgray;
     border: 1px solid goldenrod;
     border-radius: 3px;
@@ -20,18 +21,19 @@ body {
 #calculator {
     background-color: rgb(61, 134, 98);
     width: 340px;
-    height: 430px;
+    height: 400px;
     border: .5px;
     border-radius: 6px;
 }
 
-.row {
+.buttonClass {
     margin: 20px;
 }
 
-.row button{
+.buttonClass button{
     height: 38px;
-    padding: 0 15px;
+    width: 71px;
+    padding: 0 20px;
     text-align: centre;
     border-radius: 4px;
     border: 1px solid goldenrod;

@@ -1,38 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var buttons = document.getElementsByTagName("button"); // get buttons from html
-    for (var i = 0; i < buttons.length; i++) 
-        buttons[i].addEventListener("click", checkValue)
-    
-});
+//WORK IN PROGRESS! 
 
+document.addEventListener('DOMContentLoaded', start)
 
-var result = ""; // empty var results will be pushed to display
+function start() {
+    addEventListeners()
+}
 
+function addEventListeners() {
 
-// one big if/else statement
-//display numbers and operators as they are pushed. 
-
-function checkValue (e) {  
-    var value = e.target.value;     //get button value, numbers and operator
-    if (value === "=")              // When equal is pushed start function showResult
-    showResult ();
-    if (value === "AC")             //when AC button is pushed clear current string on screen (instead of have sep function resetResult)
-    document.getElementById("screen").innerText = '';
-
+var buttons = document.getElementsByClassName("button")  // get buttons from html
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", clickButton)
+}
 }
 
 
+var subtotal = []; // empty array results to be pushed to total?
+var total = []; // empty array results to send to "screem?
 
+function clickButton (num) {
+    var id = num.target.id;
 
+    if (id === "AC") {
+        window.location.reload();
+    } 
 
-// adds relevant functions
+    if (id === "=") {
+        document.getElementById("screen").innerText = eval(subtotal.join(''))
 
-showResult () {
+    }
+
+    else {
+        document.getElementById("screen").innerHTML = id
+        subtotal.push(id)
+        }
+
 
 }
-
-/*
-resetResult () {
-    document.getElementById("screen").innerText = '';
-}
-*/
