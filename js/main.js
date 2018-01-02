@@ -1,4 +1,3 @@
-//WORK IN PROGRESS! 
 
 document.addEventListener('DOMContentLoaded', start)
 
@@ -8,15 +7,14 @@ function start() {
 
 function addEventListeners() {
 
-var buttons = document.getElementsByClassName("button")  // get buttons from html
+var buttons = document.getElementsByClassName("button") 
 for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", clickButton)
 }
 }
 
 
-var equation = []; // empty array results to be pushed to total?
-var total = []; // empty array results to send to "screen?
+var equation = []; 
 
 function clickButton (evt) {
     var id = evt.target.id;
@@ -26,7 +24,9 @@ function clickButton (evt) {
     } 
 
     if (id === "=") {
-    document.getElementById("screen").innerText = eval(equation.join(''));
+    var result = eval(equation.join(''));
+    document.getElementById("screen").innerText = result
+    equation = [result];
     }
 
     else {
