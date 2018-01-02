@@ -15,24 +15,23 @@ for (var i = 0; i < buttons.length; i++) {
 }
 
 
-var subtotal = []; // empty array results to be pushed to total?
-var total = []; // empty array results to send to "screem?
+var equation = []; // empty array results to be pushed to total?
+var total = []; // empty array results to send to "screen?
 
-function clickButton (num) {
-    var id = num.target.id;
+function clickButton (evt) {
+    var id = evt.target.id;
 
     if (id === "AC") {
         window.location.reload();
     } 
 
     if (id === "=") {
-        document.getElementById("screen").innerText = eval(subtotal.join(''))
-
+    document.getElementById("screen").innerText = eval(equation.join(''));
     }
 
     else {
         document.getElementById("screen").innerHTML = id
-        subtotal.push(id)
+        equation.push(id)
         }
 
 
