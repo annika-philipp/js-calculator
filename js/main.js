@@ -7,32 +7,36 @@ function start() {
 
 function addEventListeners() {
 
-var buttons = document.getElementsByClassName("button") 
+var buttons = document.getElementsByClassName('button'); 
 for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", clickButton)
+    buttons[i].addEventListener('click', clickButton)
 }
 }
 
-
-var equation = []; 
+var numberButtons = '.1234567890';
+var operationButton = '+-*/';
+var equation = ''; 
 
 function clickButton (evt) {
     var id = evt.target.id;
 
-    if (id === "AC") {
+    if (id === 'AC') {
         window.location.reload();
     } 
 
-    if (id === "=") {
-    var result = eval(equation.join(''));
-    document.getElementById("screen").innerText = result
-    equation = [result];
+    if (numberButtons.includes(id)) {
+        equation += id
+        document.getElementById('screen').innerText = equation
     }
 
-    else {
-        document.getElementById("screen").innerHTML = id
-        equation.push(id)
-        }
+    if (operationButton.includes(id)) {
+        equation += id
+        document.getElementById('screen').innerText = equation
+    }
+    
+    if (id === "=") {
+    document.getElementById("screen").innerText = eval(equation)
+    }
 
 
 }
